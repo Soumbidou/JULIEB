@@ -2,46 +2,99 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Important pour mobile -->
-    
-    <!-- SEO : Description pour Google -->
-    <meta name="description" content="Découvrez l'univers littéraire de Julie B. Des romans poignants sur la condition humaine, de 'C'est pas des histoires' à 'Murâsalat'.">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'univers littéraire de Julie B.">
     <title>Julie B - Auteure</title>
-    
-    <!-- Favicon (L'icône dans l'onglet) -->
     <link rel="icon" type="image/png" href="images/logo.png">
-    
     <link rel="stylesheet" href="style.css">
     
+    <!-- On charge une icône WhatsApp officielle depuis internet pour être sûr qu'elle s'affiche -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         html { scroll-behavior: smooth; }
         section { padding-top: 40px; padding-bottom: 60px; }
-        input, textarea { font-family: 'Georgia', serif; }
+        
+        /* TOUTES les images auront un joli arrondi doux */
+        img { border-radius: 10px; }
+        .logo { border-radius: 0; } /* Sauf le logo qui reste comme il est */
 
-        /* Style du Bouton WhatsApp Flottant */
+        /* STYLE POÉTIQUE DU FORMULAIRE */
+        .form-poetique {
+            background-color: #f9f5ef; /* Fond crème */
+            border: 1px solid #d4c5b0; /* Bordure fine dorée/beige */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05); /* Ombre très légère */
+            max-width: 600px;
+            margin: 30px auto;
+            font-family: 'Georgia', serif; /* Police livre */
+        }
+
+        .champ-saisie {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #d4c5b0; /* Juste une ligne en bas */
+            font-family: 'Georgia', serif;
+            font-size: 1.1em;
+            color: #2c1810;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .champ-saisie:focus {
+            border-bottom-color: #8b7355; /* La ligne devient plus foncée quand on écrit */
+        }
+
+        .champ-saisie::placeholder {
+            color: #a89f91;
+            font-style: italic;
+        }
+
+        .bouton-envoi {
+            background-color: #8b7355;
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 30px; /* Bouton bien rond */
+            font-family: 'Helvetica', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .bouton-envoi:hover {
+            background-color: #6d5a41;
+            transform: scale(1.05);
+        }
+
+        /* BOUTON WHATSAPP */
         .whatsapp-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background-color: #25D366;
             color: white;
-            padding: 15px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: transform 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            font-size: 35px; /* Taille de l'icône */
+            transition: transform 0.3s;
         }
         .whatsapp-btn:hover {
-            transform: scale(1.1); /* Petit effet de zoom au survol */
-        }
-        .whatsapp-icon {
-            width: 35px;
-            height: 35px;
+            transform: scale(1.1) rotate(10deg);
         }
     </style>
 </head>
@@ -65,9 +118,7 @@
         <!-- === SECTION ACCUEIL === -->
         <section id="accueil" style="text-align: center;">
             
-            <!-- BANNIÈRE RECTANGLE (Modification demandée) -->
-            <!-- J'ai enlevé border-radius: 50% et ajusté la taille pour que ça fasse "Bannière" -->
-            <img src="images/banniere-accueil.jpeg" alt="Portrait Auteure" class="banniere-img" style="height: 300px; object-fit: cover; margin-bottom: 40px; border-radius: 10px;">
+            <img src="images/banniere-accueil.jpeg" alt="Portrait Auteure" class="banniere-img" style="height: 300px; object-fit: cover; margin-bottom: 40px;">
 
             <div class="citation-bloc">
                 <p class="citation">"Celui qui lutte avec des monstres doit prendre garde à ne pas devenir lui-même un monstre. Et si tu regardes longtemps dans l’abîme, l’abîme regarde aussi en toi."</p>
@@ -96,7 +147,9 @@
             <article class="livre">
                 <div class="livre-info">
                     <h2 class="titre-poetique">C'est pas des histoires</h2>
+                    
                     <p>Elles sont mères, filles, épouses, sœurs. Elles vivent, elles chutent, elles se taisent, parfois elles crient. Chaque tome met en lumière une femme et son combat contre l'injustice, l'épuisement, la violence ou l'abandon.</p>
+                    
                     <div class="citation-bloc">
                         <p class="citation">"Ce n'est pas du divertissement. Ce n'est pas des histoires. C'est la vérité de trop de femmes."</p>
                     </div>
@@ -127,20 +180,21 @@
 
             <hr class="separator-court">
 
-            <div class="livre" style="margin-bottom: 0;">
+            <div style="text-align: center; margin-bottom: 40px;">
                 <h2>Me contacter</h2>
                 <p>Une question ? Un mot doux ? N'hésitez pas.</p>
-                
-                <form action="mailto:julieb@contact.fr" method="post" enctype="text/plain" style="max-width: 500px; margin: 0 auto; text-align: left;">
-                    <label for="nom" style="display:block; margin-bottom: 5px; font-weight:bold; color:#8b7355;">Votre Nom :</label>
-                    <input type="text" id="nom" name="nom" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; background-color: #fffaf0;">
-
-                    <label for="message" style="display:block; margin-bottom: 5px; font-weight:bold; color:#8b7355;">Votre Message :</label>
-                    <textarea id="message" name="message" rows="5" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; background-color: #fffaf0;"></textarea>
-
-                    <button type="submit" style="background-color: #8b7355; color: white; padding: 12px 40px; border: none; cursor: pointer; font-size: 1.1em; display: block; margin: 0 auto; transition: 0.3s;">Envoyer mon message</button>
-                </form>
             </div>
+            
+            <!-- FORMULAIRE POÉTIQUE STYLISÉ -->
+            <form action="mailto:julieb@contact.fr" method="post" enctype="text/plain" class="form-poetique">
+                
+                <input type="text" id="nom" name="nom" class="champ-saisie" placeholder="Votre Nom..." required>
+
+                <textarea id="message" name="message" rows="5" class="champ-saisie" placeholder="Votre message pour Julie..." required></textarea>
+
+                <button type="submit" class="bouton-envoi">Envoyer</button>
+            </form>
+
         </section>
 
     </main>
@@ -149,8 +203,10 @@
         <p>&copy; 2025 Julie B. Tous droits réservés.</p>
     </footer>
 
-    <!-- BOUTON WHATSAPP FLOTTANT -->
-    <!-- Remplace le numéro par le tien au format international sans le + (ex: 33612345678) -->
+    <!-- BOUTON WHATSAPP AVEC LOGO OFFICIEL -->
     <a href="https://wa.me/212771173793" class="whatsapp-btn" target="_blank" title="Me contacter sur WhatsApp">
-        <!-- Icône SVG WhatsApp simple -->
-        <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2
+        <i class="fab fa-whatsapp"></i> <!-- Ceci charge l'icône officielle -->
+    </a>
+
+</body>
+</html>
