@@ -7,74 +7,126 @@
     <title>Julie B - Auteure</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
-    
-    <!-- On charge une icône WhatsApp officielle depuis internet pour être sûr qu'elle s'affiche -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         html { scroll-behavior: smooth; }
-        section { padding-top: 40px; padding-bottom: 60px; }
         
-        /* TOUTES les images auront un joli arrondi doux */
-        img { border-radius: 10px; }
-        .logo { border-radius: 0; } /* Sauf le logo qui reste comme il est */
+        /* Ajustement pour le menu fixe : on pousse le contenu vers le bas */
+        body { padding-top: 160px; } 
 
-        /* STYLE POÉTIQUE DU FORMULAIRE */
-        .form-poetique {
-            background-color: #f9f5ef; /* Fond crème */
-            border: 1px solid #d4c5b0; /* Bordure fine dorée/beige */
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.05); /* Ombre très légère */
-            max-width: 600px;
-            margin: 30px auto;
-            font-family: 'Georgia', serif; /* Police livre */
+        /* NOUVEAU STYLE DU MENU (Option B + Fixe) */
+        header {
+            position: fixed; /* Il reste collé en haut */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95); /* Fond blanc presque opaque */
+            backdrop-filter: blur(5px); /* Effet flou moderne derrière */
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05); /* Ombre légère */
+            padding: 15px 0;
+            text-align: center; /* Tout centrer */
         }
 
+        .header-content {
+            display: flex;
+            flex-direction: column; /* Empile le logo et le menu */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-link {
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            max-width: 120px; /* Logo un peu plus petit pour le menu fixe */
+            height: auto;
+            border-radius: 0 !important;
+        }
+
+        nav {
+            position: static; /* On enlève le positionnement absolu de l'ancien design */
+            margin-top: 5px;
+        }
+
+        nav a {
+            margin: 0 20px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #5a4a42;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+        
+        /* Petit trait au survol */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            background-color: #8b7355;
+            transition: all 0.3s;
+        }
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+
+        /* LE RESTE DU STYLE (Images, Formulaire, WhatsApp...) */
+        section { padding-top: 40px; padding-bottom: 60px; }
+        img { border-radius: 10px; }
+        
+        .form-poetique {
+            background-color: #f9f5ef;
+            border: 1px solid #d4c5b0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 30px auto;
+            font-family: 'Georgia', serif;
+        }
         .champ-saisie {
             width: 100%;
             padding: 15px;
             margin-bottom: 25px;
             background-color: transparent;
             border: none;
-            border-bottom: 2px solid #d4c5b0; /* Juste une ligne en bas */
+            border-bottom: 2px solid #d4c5b0;
             font-family: 'Georgia', serif;
             font-size: 1.1em;
             color: #2c1810;
-            transition: border-color 0.3s;
             outline: none;
         }
-
-        .champ-saisie:focus {
-            border-bottom-color: #8b7355; /* La ligne devient plus foncée quand on écrit */
-        }
-
-        .champ-saisie::placeholder {
-            color: #a89f91;
-            font-style: italic;
-        }
-
+        .champ-saisie:focus { border-bottom-color: #8b7355; }
         .bouton-envoi {
             background-color: #8b7355;
             color: white;
             padding: 12px 40px;
             border: none;
-            border-radius: 30px; /* Bouton bien rond */
+            border-radius: 30px;
             font-family: 'Helvetica', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: 0.3s;
             display: block;
             margin: 0 auto;
         }
+        .bouton-envoi:hover { background-color: #6d5a41; transform: scale(1.05); }
 
-        .bouton-envoi:hover {
-            background-color: #6d5a41;
-            transform: scale(1.05);
-        }
-
-        /* BOUTON WHATSAPP */
         .whatsapp-btn {
             position: fixed;
             bottom: 25px;
@@ -90,12 +142,10 @@
             text-decoration: none;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             z-index: 1000;
-            font-size: 35px; /* Taille de l'icône */
+            font-size: 35px;
             transition: transform 0.3s;
         }
-        .whatsapp-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
+        .whatsapp-btn:hover { transform: scale(1.1) rotate(10deg); }
     </style>
 </head>
 <body>
@@ -118,7 +168,8 @@
         <!-- === SECTION ACCUEIL === -->
         <section id="accueil" style="text-align: center;">
             
-            <img src="images/banniere-accueil.jpg" alt="Portrait Auteure" class="banniere-img" style="height: 300px; object-fit: cover; margin-bottom: 40px;">
+            <!-- Ta bannière personnalisée (jpg, 400px, bottom) -->
+            <img src="images/banniere-accueil.jpeg" alt="Portrait Auteure" class="banniere-img" style="height: 400px; object-fit: cover; object-position: bottom; margin-bottom: 40px;">
 
             <div class="citation-bloc">
                 <p class="citation">"Celui qui lutte avec des monstres doit prendre garde à ne pas devenir lui-même un monstre. Et si tu regardes longtemps dans l’abîme, l’abîme regarde aussi en toi."</p>
@@ -185,13 +236,9 @@
                 <p>Une question ? Un mot doux ? N'hésitez pas.</p>
             </div>
             
-            <!-- FORMULAIRE POÉTIQUE STYLISÉ -->
             <form action="mailto:julieb@contact.fr" method="post" enctype="text/plain" class="form-poetique">
-                
                 <input type="text" id="nom" name="nom" class="champ-saisie" placeholder="Votre Nom..." required>
-
                 <textarea id="message" name="message" rows="5" class="champ-saisie" placeholder="Votre message pour Julie..." required></textarea>
-
                 <button type="submit" class="bouton-envoi">Envoyer</button>
             </form>
 
@@ -203,10 +250,10 @@
         <p>&copy; 2025 Julie B. Tous droits réservés.</p>
     </footer>
 
-    <!-- BOUTON WHATSAPP AVEC LOGO OFFICIEL -->
+    <!-- BOUTON WHATSAPP -->
     <a href="https://wa.me/212771173793" class="whatsapp-btn" target="_blank" title="Me contacter sur WhatsApp">
-        <i class="fab fa-whatsapp"></i> <!-- Ceci charge l'icône officielle -->
+        <i class="fab fa-whatsapp"></i>
     </a>
 
 </body>
-</html>:
+</html>
