@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <title>Julie B - Auteure</title>
     <link rel="stylesheet" href="style.css">
-    <!-- On ajoute un petit script pour le défilement fluide -->
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Un peu d'espace au-dessus des sections pour ne pas être caché par le menu si besoin */
-        section {
-            padding-top: 40px;
-            padding-bottom: 60px;
-        }
+        html { scroll-behavior: smooth; }
+        section { padding-top: 40px; padding-bottom: 60px; }
+        /* Style simple pour le formulaire */
+        input, textarea { font-family: 'Georgia', serif; }
     </style>
 </head>
 <body>
@@ -34,15 +29,21 @@
     <main>
         
         <!-- === SECTION ACCUEIL === -->
-        <section id="accueil">
+        <section id="accueil" style="text-align: center;">
+            <!-- Image ronde ajoutée -->
+            <img src="images/banniere-contact.jpeg" alt="Portrait Auteure" class="cover" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; margin-bottom: 30px;">
+
             <div class="citation-bloc">
                 <p class="citation">"Celui qui lutte avec des monstres doit prendre garde à ne pas devenir lui-même un monstre. Et si tu regardes longtemps dans l’abîme, l’abîme regarde aussi en toi."</p>
-                <p class="auteur-citation">— Friedrich Nietzsche</p>
+                <!-- Tiret supprimé et nom centré -->
+                <p class="auteur-citation" style="text-align: center;">Friedrich Nietzsche</p>
             </div>
             
             <hr class="separator-court">
             
-            <h2>À propos de moi</h2>
+            <!-- Titre centré et renommé -->
+            <h2 style="text-align: center;">L'Auteure</h2>
+            
             <p>Depuis toujours, la littérature a nourri mon âme, et l'écriture, en tant qu'expression de soi, a été pour moi une véritable passion.</p>
             
             <p>Cependant, pendant de nombreuses années, je me suis volontairement privée de ces plaisirs, m'enfermant dans une vision étroite de la religion qui me dictait de renoncer à ce qui m'était cher. Aujourd'hui, libérée de ces contraintes, je retrouve enfin ma voix et me consacre pleinement à l'écriture.</p>
@@ -72,7 +73,7 @@
                 </div>
             </article>
 
-            <hr class="separator-court">
+            <!-- TRAIT INUTILE SUPPRIMÉ ICI -->
 
             <!-- LIVRE MURÂSALAT -->
             <article class="livre">
@@ -102,16 +103,20 @@
 
             <hr class="separator-court">
 
-            <!-- BLOC CONTACT CENTRÉ -->
+            <!-- FORMULAIRE DE CONTACT -->
             <div class="livre" style="margin-bottom: 0;">
                 <h2>Me contacter</h2>
+                <p>Une question ? Un mot doux ? N'hésitez pas.</p>
                 
-                <p>Vous souhaitez échanger sur mes livres, me poser une question ou simplement partager votre ressenti ?</p>
-                <p>N'hésitez pas à m'écrire :</p>
-                
-                <p style="font-size: 1.2em; font-weight: bold;">
-                    <a href="mailto:julieb@contact.fr" style="color: #8b7355; text-decoration: none;">julieb@contact.fr</a>
-                </p>
+                <form action="mailto:julieb@contact.fr" method="post" enctype="text/plain" style="max-width: 500px; margin: 0 auto; text-align: left;">
+                    <label for="nom" style="display:block; margin-bottom: 5px; font-weight:bold; color:#8b7355;">Votre Nom :</label>
+                    <input type="text" id="nom" name="nom" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; background-color: #fffaf0;">
+
+                    <label for="message" style="display:block; margin-bottom: 5px; font-weight:bold; color:#8b7355;">Votre Message :</label>
+                    <textarea id="message" name="message" rows="5" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; background-color: #fffaf0;"></textarea>
+
+                    <button type="submit" style="background-color: #8b7355; color: white; padding: 12px 40px; border: none; cursor: pointer; font-size: 1.1em; display: block; margin: 0 auto; transition: 0.3s;">Envoyer mon message</button>
+                </form>
             </div>
         </section>
 
