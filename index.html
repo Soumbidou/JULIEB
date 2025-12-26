@@ -4,38 +4,117 @@
     <meta charset="UTF-8">
     <title>Julie B - Auteure</title>
     <link rel="stylesheet" href="style.css">
+    <!-- On ajoute un petit script pour le défilement fluide -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Un peu d'espace au-dessus des sections pour ne pas être caché par le menu si besoin */
+        section {
+            padding-top: 40px;
+            padding-bottom: 60px;
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="header-content">
-            <a href="index.html" class="logo-link">
-                <!-- Assurez-vous que le nom de l'image est bon (logo.png ou logo.jpg) -->
+            <a href="#accueil" class="logo-link">
                 <img src="images/logo.png" alt="Logo Julie B" class="logo">
             </a>
             <nav>
-                <a href="index.html">Accueil</a>
-                <a href="livres.html">Mes Livres</a>
-                <a href="contact.html">Contact</a>
+                <a href="#accueil">Accueil</a>
+                <a href="#livres">Mes Livres</a>
+                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <div class="citation-bloc">
-    <p class="citation">"Celui qui lutte avec des monstres doit prendre garde à ne pas devenir lui-même un monstre. Et si tu regardes longtemps dans l’abîme, l’abîme regarde aussi en toi."</p>
-    <p class="auteur-citation">— Friedrich Nietzsche</p>
-</div>
-<hr class="separator-court"> <!-- Petite séparation -->
-
-        <h2>À propos de moi</h2>
-        <p>Depuis toujours, la littérature a nourri mon âme, et l'écriture, en tant qu'expression de soi, a été pour moi une véritable passion.</p>
         
-        <p>Cependant, pendant de nombreuses années, je me suis volontairement privée de ces plaisirs, m'enfermant dans une vision étroite de la religion qui me dictait de renoncer à ce qui m'était cher. Aujourd'hui, libérée de ces contraintes, je retrouve enfin ma voix et me consacre pleinement à l'écriture.</p>
+        <!-- === SECTION ACCUEIL === -->
+        <section id="accueil">
+            <div class="citation-bloc">
+                <p class="citation">"Celui qui lutte avec des monstres doit prendre garde à ne pas devenir lui-même un monstre. Et si tu regardes longtemps dans l’abîme, l’abîme regarde aussi en toi."</p>
+                <p class="auteur-citation">— Friedrich Nietzsche</p>
+            </div>
+            
+            <hr class="separator-court">
+            
+            <h2>À propos de moi</h2>
+            <p>Depuis toujours, la littérature a nourri mon âme, et l'écriture, en tant qu'expression de soi, a été pour moi une véritable passion.</p>
+            
+            <p>Cependant, pendant de nombreuses années, je me suis volontairement privée de ces plaisirs, m'enfermant dans une vision étroite de la religion qui me dictait de renoncer à ce qui m'était cher. Aujourd'hui, libérée de ces contraintes, je retrouve enfin ma voix et me consacre pleinement à l'écriture.</p>
+    
+            <p>Mes travaux naviguent entre des plongées introspectives dans la psychologie humaine et des critiques acerbes des systèmes sociaux et moraux qui façonnent nos existences. J'explore les paradoxes de l'existence, les luttes intérieures de l'individu, et les questions philosophiques sur la liberté, le destin et la place de l'homme dans un monde souvent absurde.</p>
+            
+            <p>À travers mes récits, je m'efforce de sonder les profondeurs de l'âme humaine, tout en incitant le lecteur à une réflexion profonde sur ses propres perceptions et croyances.</p>
+        </section>
 
-        <p>Mes travaux naviguent entre des plongées introspectives dans la psychologie humaine et des critiques acerbes des systèmes sociaux et moraux qui façonnent nos existences. J'explore les paradoxes de l'existence, les luttes intérieures de l'individu, et les questions philosophiques sur la liberté, le destin et la place de l'homme dans un monde souvent absurde.</p>
-        
-        <p>À travers mes récits, je m'efforce de sonder les profondeurs de l'âme humaine, tout en incitant le lecteur à une réflexion profonde sur ses propres perceptions et croyances.</p>
+        <hr class="separator">
+
+        <!-- === SECTION LIVRES === -->
+        <section id="livres">
+            <!-- BANNIÈRE DE LA SÉRIE -->
+            <img src="images/histoires.jpeg" alt="Ambiance Série" class="banniere-img">
+
+            <!-- TEXTE DE LA SÉRIE -->
+            <article class="livre">
+                <div class="livre-info">
+                    <h2 class="titre-poetique">C'est pas des histoires</h2>
+                    
+                    <p>Elles sont mères, filles, épouses, sœurs. Elles vivent, elles chutent, elles se taisent, parfois elles crient. Chaque tome met en lumière une femme et son combat contre l'injustice, l'épuisement, la violence ou l'abandon.</p>
+                    
+                    <div class="citation-bloc">
+                        <p class="citation">"Ce n'est pas du divertissement. Ce n'est pas des histoires. C'est la vérité de trop de femmes."</p>
+                    </div>
+                </div>
+            </article>
+
+            <hr class="separator-court">
+
+            <!-- LIVRE MURÂSALAT -->
+            <article class="livre">
+                <img src="images/murasalat.jpeg" alt="Couverture Murâsalat" class="cover">
+                
+                <div class="livre-info">
+                    <h2 class="titre-poetique">Murâsalat</h2>
+                    <p class="genre">Roman — Collection C'est pas des histoires</p>
+                    
+                    <p>Un rêve troublant pousse Irit à reprendre contact avec son ancien professeur après des années de silence. Ce qui commence comme un simple message nocturne se transforme en une correspondance intime où s'entremêlent littérature, réflexion et foi.</p>
+                    <p>Mais leur histoire bascule lorsque Raya J. se convertit à l'Islam et disparaît. Que s'est-il passé ?</p>
+                    <p>Murâsalat explore les frontières de l'amour platonique, la transgression des conventions et la puissance de la quête spirituelle.</p>
+                </div>
+            </article>
+        </section>
+
+        <hr class="separator">
+
+        <!-- === SECTION CONTACT === -->
+        <section id="contact">
+            <!-- BANNIÈRE -->
+            <img src="images/banniere-contact.jpeg" alt="Bannière Contact" class="banniere-img">
+
+            <div class="citation-bloc">
+                <p class="citation">"Les mots sont des ponts. Écrivez-moi pour que nous puissions traverser ensemble."</p>
+            </div>
+
+            <hr class="separator-court">
+
+            <!-- BLOC CONTACT CENTRÉ -->
+            <div class="livre" style="margin-bottom: 0;">
+                <h2>Me contacter</h2>
+                
+                <p>Vous souhaitez échanger sur mes livres, me poser une question ou simplement partager votre ressenti ?</p>
+                <p>N'hésitez pas à m'écrire :</p>
+                
+                <p style="font-size: 1.2em; font-weight: bold;">
+                    <a href="mailto:julieb@contact.fr" style="color: #8b7355; text-decoration: none;">julieb@contact.fr</a>
+                </p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
