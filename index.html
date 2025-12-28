@@ -181,25 +181,27 @@
         .btn-achat {
             text-decoration: none; padding: 10px 20px; border-radius: 30px;
             font-size: 0.8em; text-transform: uppercase; font-family: sans-serif;
-            border: 1px solid #d4c5b0; background: white; color: #5a4a42;
+            border: 1px solid #d4c5b0; 
+            background: rgba(255,255,255,0.6); /* Beige transparent très léger */
+            color: #5a4a42;
             display: flex; align-items: center; gap: 8px; transition: 0.3s;
         }
         
-        /* Bouton Amazon (Orange) */
-        a[href*="amzn"] {
+        /* Bouton Amazon : Orange UNIQUEMENT au survol */
+        a[href*="amzn"]:hover {
             background-color: #FF9900; 
             color: white; 
-            border: 1px solid #FF9900;
+            border-color: #FF9900;
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
         }
-        a[href*="amzn"]:hover { background-color: #e68a00; } /* Un peu plus foncé au survol */
 
-        /* Bouton WhatsApp (Vert) */
-        a[href*="wa.me"] {
+        /* Bouton WhatsApp : Vert UNIQUEMENT au survol */
+        a[href*="wa.me"]:hover {
             background-color: #25D366; 
             color: white; 
-            border: 1px solid #25D366;
+            border-color: #25D366;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
-        a[href*="wa.me"]:hover { background-color: #128C7E; } /* Vert officiel foncé au survol */
 
         .form-poetique { 
             background: rgba(255,255,255,0.8); padding: 40px; border-radius: 8px; 
@@ -423,8 +425,10 @@
     <section id="contact">
         <img src="images/banniere-contact.jpeg" alt="Contact" class="banniere-img">
         <h2 style="text-align: center;">Me contacter</h2>
+        <!-- Formulaire de contact -->
         <form action="mailto:julieb@contact.fr" method="post" enctype="text/plain" class="form-poetique">
             <input type="text" name="nom" class="champ-saisie" placeholder="Votre Nom..." required>
+            <input type="email" name="email" class="champ-saisie" placeholder="Votre Email (pour la réponse)..." required>
             <textarea name="message" rows="5" class="champ-saisie" placeholder="Votre message..." required></textarea>
             <button type="submit" class="bouton-envoi">Envoyer</button>
         </form>
