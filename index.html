@@ -203,11 +203,6 @@
 
         footer { text-align: center; padding: 40px; font-size: 0.8em; color: #888; border-top: 1px solid #e0d0b0; margin-top: 60px; }
         .footer-links a { color: #8b7355; margin: 0 10px; text-decoration: none; }
-
-        #cookie-banner {
-            position: fixed; bottom: 0; left: 0; width: 100%; background: #2c1810; color: #f4e9d5;
-            text-align: center; padding: 10px; font-size: 0.8em; display: flex; justify-content: center; align-items: center; gap: 15px;
-        }
     </style>
     <!-- CSS Mobile à la fin pour la priorité -->
     <style>
@@ -407,13 +402,14 @@
         <a href="mentions-legales.html">Mentions Légales</a>
         <a href="mentions-legales.html">Politique de Confidentialité</a>
     </div>
-    <p style="margin-top: 15px;">&copy; 2025 Julie B.</p>
+    <div style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+        <p style="margin: 0;">&copy; 2025 Julie B.</p>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.9em;">Site réalisé par</span>
+            <img src="images/SOURA.png" alt="Soura Web Design" style="height: 30px; width: auto;">
+        </div>
+    </div>
 </footer>
-
-<div id="cookie-banner">
-    <span>Ce site utilise des cookies.</span>
-    <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background:#8b7355;color:white;border:none;padding:5px 10px;cursor:pointer;">OK</button>
-</div>
 
 <script>
     function toggleMenu() {
