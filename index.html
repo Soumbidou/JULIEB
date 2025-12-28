@@ -28,74 +28,9 @@
         }
 
         /* === RESPONSIVE MOBILE === */
-        @media (max-width: 768px) {
-            body { padding-top: 100px; } 
-            
-            header { padding: 10px; height: 80px; }
+        /* (Déplacé à la fin pour être prioritaire) */
 
-            .header-container {
-                display: flex; justify-content: center; align-items: center;
-                height: 100%; position: relative;
-            }
-            
-            /* Logo centré de force */
-            .logo-box {
-                position: absolute; left: 50%; top: 50%; 
-                transform: translate(-50%, -50%) !important;
-                width: auto; margin: 0;
-                z-index: 10;
-            }
-            .logo { width: 140px; height: auto; } /* Encore plus grand */
-            
-            /* Bouton Burger : Caractère simple pour être sûr qu'il s'affiche */
-            .menu-toggle {
-                display: flex !important; align-items: center; justify-content: center;
-                position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
-                font-size: 2em; cursor: pointer; color: #2c1810; z-index: 20;
-                width: 40px; height: 40px;
-            }
-
-            /* Menu caché par défaut */
-            nav {
-                display: none !important; /* Force le masquage */
-                position: fixed; top: 0; left: 0; width: 100%; height: 100vh; /* Prend tout l'écran */
-                background-color: rgba(244, 233, 213, 0.98);
-                flex-direction: column; 
-                align-items: center; justify-content: center; /* Centre tout parfaitement */
-                padding: 0; 
-                z-index: 1500; /* Passe par-dessus tout */
-            }
-            
-            /* Menu ouvert (activé via JS) */
-            nav.active { display: flex !important; }
-            
-            /* Croix pour fermer le menu (optionnel mais pratique) */
-            nav.active::before {
-                content: "✕"; font-size: 2em; color: #5a4a42;
-                position: absolute; top: 20px; right: 20px; cursor: pointer;
-            }
-
-            .menu-link { 
-                font-size: 1.5em; /* Plus gros pour mobile */
-                width: auto; padding: 20px 0;
-            }
-            
-            .dropdown-content {
-                position: static; box-shadow: none; border: none; background: transparent;
-                transform: none; text-align: center;
-            }
-            .dropdown-content a { text-align: center; padding: 10px; }
-            .dropdown:hover .dropdown-content { display: block; } /* Garde le comportement hover si besoin, ou on peut le forcer */
-            
-            /* Footer Mobile : Liens l'un sous l'autre */
-            .footer-links { display: flex; flex-direction: column; gap: 10px; }
-            .footer-links a { margin: 0; }
-        }
-
-        /* Cache le bouton burger sur PC */
-        .menu-toggle { display: none; }
-        
-        /* === HEADER === */
+    </style>
         header {
             position: fixed;
             top: 0; left: 0; width: 100%;
@@ -274,6 +209,77 @@
             text-align: center; padding: 10px; font-size: 0.8em; display: flex; justify-content: center; align-items: center; gap: 15px;
         }
     </style>
+    <!-- CSS Mobile à la fin pour la priorité -->
+    <style>
+        /* === RESPONSIVE MOBILE === */
+        @media (max-width: 768px) {
+            body { padding-top: 100px; } 
+            
+            header { padding: 10px; height: 80px; }
+
+            .header-container {
+                display: flex; justify-content: center; align-items: center;
+                height: 100%; position: relative;
+            }
+            
+            /* Logo centré de force */
+            .logo-box {
+                position: absolute; left: 50%; top: 50%; 
+                transform: translate(-50%, -50%) !important;
+                width: auto; margin: 0;
+                z-index: 10;
+            }
+            .logo { width: 140px; height: auto; } /* Encore plus grand */
+            
+            /* Bouton Burger : Caractère simple pour être sûr qu'il s'affiche */
+            .menu-toggle {
+                display: flex !important; align-items: center; justify-content: center;
+                position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+                font-size: 2em; cursor: pointer; color: #2c1810; z-index: 20;
+                width: 40px; height: 40px;
+            }
+
+            /* Menu caché par défaut */
+            nav {
+                display: none !important; /* Force le masquage */
+                position: fixed; top: 0; left: 0; width: 100%; height: 100vh; /* Prend tout l'écran */
+                background-color: #f4e9d5; /* Fond OPAQUE couleur crème (plus de transparence) */
+                flex-direction: column; 
+                align-items: center; justify-content: center; /* Centre tout parfaitement */
+                padding: 0; 
+                z-index: 1500; /* Passe par-dessus tout */
+            }
+            
+            /* Menu ouvert (activé via JS) */
+            nav.active { display: flex !important; }
+            
+            /* Croix pour fermer le menu (Vrai bouton) */
+            .close-btn {
+                display: block; /* Visible sur mobile dans le menu */
+                position: absolute; top: 30px; right: 30px; 
+                font-size: 2.5em; cursor: pointer; color: #5a4a42;
+            }
+
+            .menu-link { 
+                font-size: 1.2em; /* Police réduite (était 1.5em) */
+                width: auto; padding: 15px 0;
+            }
+            
+            .dropdown-content {
+                position: static; box-shadow: none; border: none; background: transparent;
+                transform: none; text-align: center;
+            }
+            .dropdown-content a { text-align: center; padding: 10px; }
+            .dropdown:hover .dropdown-content { display: block; } 
+            
+            /* Footer Mobile : Liens l'un sous l'autre */
+            .footer-links { display: flex; flex-direction: column; gap: 10px; }
+            .footer-links a { margin: 0; }
+        }
+
+        /* Cache le bouton burger sur PC */
+        .menu-toggle, .close-btn { display: none; }
+    </style>
 </head>
 <body>
 
@@ -290,6 +296,9 @@
         </div>
 
         <nav id="nav-menu">
+            <!-- Bouton Fermer (Croix) -->
+            <div class="close-btn" onclick="toggleMenu()">✕</div>
+
             <a href="#accueil" class="menu-link" onclick="toggleMenu()">Accueil</a>
             
             <div class="dropdown">
