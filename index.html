@@ -184,14 +184,22 @@
             border: 1px solid #d4c5b0; background: white; color: #5a4a42;
             display: flex; align-items: center; gap: 8px; transition: 0.3s;
         }
-        /* Effet Hover (changement de couleur au survol) */
-        .btn-achat:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
-            background-color: #8b7355; /* Fond marron */
-            color: white; /* Texte blanc */
-            border-color: #8b7355; /* Bordure marron */
+        
+        /* Bouton Amazon (Orange) */
+        a[href*="amzn"] {
+            background-color: #FF9900; 
+            color: white; 
+            border: 1px solid #FF9900;
         }
+        a[href*="amzn"]:hover { background-color: #e68a00; } /* Un peu plus foncé au survol */
+
+        /* Bouton WhatsApp (Vert) */
+        a[href*="wa.me"] {
+            background-color: #25D366; 
+            color: white; 
+            border: 1px solid #25D366;
+        }
+        a[href*="wa.me"]:hover { background-color: #128C7E; } /* Vert officiel foncé au survol */
 
         .form-poetique { 
             background: rgba(255,255,255,0.8); padding: 40px; border-radius: 8px; 
