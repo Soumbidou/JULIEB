@@ -214,9 +214,9 @@
     <style>
         /* === RESPONSIVE MOBILE === */
         @media (max-width: 768px) {
-            body { padding-top: 100px; } 
+            body { padding-top: 130px; } /* Ajusté pour header plus haut */
             
-            header { padding: 10px; height: 80px; }
+            header { padding: 10px; height: 110px; } /* Hauteur augmentée pour le logo */
 
             .header-container {
                 display: flex; justify-content: center; align-items: center;
@@ -230,9 +230,9 @@
                 width: auto; margin: 0;
                 z-index: 10;
             }
-            .logo { width: 140px; height: auto; } /* Encore plus grand */
+            .logo { width: 140px; height: auto; } /* Grand logo */
             
-            /* Bouton Burger : Caractère simple pour être sûr qu'il s'affiche */
+            /* Bouton Burger */
             .menu-toggle {
                 display: flex !important; align-items: center; justify-content: center;
                 position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
@@ -252,9 +252,9 @@
                 align-items: center; 
                 justify-content: center; 
                 padding: 0; 
-                margin: 0; /* Pas de marge */
+                margin: 0; 
                 z-index: 9999; /* Au-dessus de TOUT */
-                transform: none; /* Annule tout centrage précédent */
+                transform: none; 
             }
             
             /* Menu ouvert (activé via JS) */
@@ -262,38 +262,37 @@
             
             /* Croix pour fermer le menu (Vrai bouton) */
             .close-btn {
-                display: block; /* Visible sur mobile dans le menu */
+                display: block !important; /* Visible FORCE sur mobile */
                 position: absolute; top: 30px; right: 30px; 
                 font-size: 2.5em; cursor: pointer; color: #5a4a42;
+                z-index: 10000; /* Au-dessus du menu */
             }
 
             .menu-link { 
-                font-size: 1.2em; /* Police réduite (était 1.5em) */
+                font-size: 1.2em; 
                 width: auto; padding: 15px 0;
             }
             
+            /* Sous-menu caché par défaut sur mobile */
             .dropdown-content {
-                position: static; 
-                box-shadow: none; 
-                border: none; 
-                background: transparent;
-                transform: none; 
-                text-align: center;
-                /* Affichage vertical propre */
-                display: flex; /* Flexbox pour gérer la direction */
-                flex-direction: column; /* Vertical */
-                align-items: center; /* Centré */
-                padding-top: 10px;
+                display: none; /* CACHÉ par défaut */
+                position: static; box-shadow: none; border: none; background: transparent;
+                transform: none; text-align: center;
+                flex-direction: column; align-items: center; padding-top: 10px;
             }
-            .dropdown-content a { 
-                text-align: center; 
-                padding: 8px 0; 
-                font-size: 0.9em; /* Un peu plus petit que les titres principaux */
-                color: #8b7355; /* Couleur un peu différente pour distinguer */
-            }
-            .dropdown:hover .dropdown-content { display: flex; } /* Force l'affichage en flex */ 
+            /* Classe pour afficher le sous-menu via JS */
+            .dropdown-content.show { display: flex; }
+
+            /* Désactiver le hover sur mobile */
+            .dropdown:hover .dropdown-content { display: none; } 
+            .dropdown:hover .dropdown-content.show { display: flex; }
             
-            /* Footer Mobile : Liens l'un sous l'autre */
+            .dropdown-content a { 
+                text-align: center; padding: 8px 0; 
+                font-size: 0.9em; color: #8b7355; 
+            }
+            
+            /* Footer Mobile */
             .footer-links { display: flex; flex-direction: column; gap: 10px; }
             .footer-links a { margin: 0; }
         }
@@ -323,7 +322,8 @@
             <a href="#accueil" class="menu-link" onclick="toggleMenu()">Accueil</a>
             
             <div class="dropdown">
-                <a href="#livres" class="menu-link" style="display: flex; align-items: center; gap: 8px;">
+                <!-- Lien qui déclenche l'ouverture du sous-menu sur mobile -->
+                <a href="#livres" onclick="toggleSubMenu(event)" class="menu-link" style="display: flex; align-items: center; gap: 8px;">
                     Livres <i class="fas fa-chevron-down" style="font-size: 0.7em;"></i>
                 </a>
                 <div class="dropdown-content">
@@ -439,6 +439,16 @@
     function toggleMenu() {
         var nav = document.getElementById("nav-menu");
         nav.classList.toggle("active");
+    }
+
+    // Fonction pour le sous-menu Livres
+    function toggleSubMenu(event) {
+        // Uniquement si on est sur mobile
+        if (window.innerWidth <= 768) {
+            event.preventDefault(); // On ne suit pas le lien #livres tout de suite
+            var dropdown = event.currentTarget.nextElementSibling; // La div .dropdown-content juste après
+            dropdown.classList.toggle("show");
+        }
     }
 </script>
 
