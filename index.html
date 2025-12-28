@@ -30,7 +30,6 @@
         /* === RESPONSIVE MOBILE === */
         /* (Déplacé à la fin pour être prioritaire) */
 
-    </style>
         header {
             position: fixed;
             top: 0; left: 0; width: 100%;
@@ -58,7 +57,7 @@
         /* LOGO A GAUCHE */
         .logo-box {
             position: absolute;
-            left: 0;
+            left: 40px; /* Décalage plus important vers la droite */
             top: 50%;
             transform: translateY(-50%);
             display: flex;
@@ -66,7 +65,7 @@
         }
 
         .logo { 
-            width: 90px; 
+            width: 120px; /* Agrandit le logo (était 90px) */
             height: auto; 
             display: block;
         }
@@ -261,11 +260,25 @@
             }
             
             .dropdown-content {
-                position: static; box-shadow: none; border: none; background: transparent;
-                transform: none; text-align: center;
+                position: static; 
+                box-shadow: none; 
+                border: none; 
+                background: transparent;
+                transform: none; 
+                text-align: center;
+                /* Affichage vertical propre */
+                display: flex; /* Flexbox pour gérer la direction */
+                flex-direction: column; /* Vertical */
+                align-items: center; /* Centré */
+                padding-top: 10px;
             }
-            .dropdown-content a { text-align: center; padding: 10px; }
-            .dropdown:hover .dropdown-content { display: block; } 
+            .dropdown-content a { 
+                text-align: center; 
+                padding: 8px 0; 
+                font-size: 0.9em; /* Un peu plus petit que les titres principaux */
+                color: #8b7355; /* Couleur un peu différente pour distinguer */
+            }
+            .dropdown:hover .dropdown-content { display: flex; } /* Force l'affichage en flex */ 
             
             /* Footer Mobile : Liens l'un sous l'autre */
             .footer-links { display: flex; flex-direction: column; gap: 10px; }
@@ -402,13 +415,11 @@
         <a href="mentions-legales.html">Mentions Légales</a>
         <a href="mentions-legales.html">Politique de Confidentialité</a>
     </div>
-    <div style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px;">
-        <p style="margin: 0;">&copy; 2025 Julie B.</p>
-        <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 0.9em;">Site réalisé par</span>
-            <img src="images/SOURA.png" alt="Soura Web Design" style="height: 30px; width: auto;">
-        </div>
-    </div>
+    <p style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        &copy; 2025 Julie B. <span style="opacity: 0.5;">|</span> 
+        <span style="font-size: 0.9em;">Site réalisé par</span> 
+        <img src="images/SOURA.png" alt="Soura" style="height: 25px; vertical-align: middle;">
+    </p>
 </footer>
 
 <script>
