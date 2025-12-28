@@ -57,7 +57,7 @@
         /* LOGO A GAUCHE */
         .logo-box {
             position: absolute;
-            left: 40px; /* Décalage plus important vers la droite */
+            left: 60px; /* Encore plus à droite */
             top: 50%;
             transform: translateY(-50%);
             display: flex;
@@ -184,7 +184,14 @@
             border: 1px solid #d4c5b0; background: white; color: #5a4a42;
             display: flex; align-items: center; gap: 8px; transition: 0.3s;
         }
-        .btn-achat:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+        /* Effet Hover (changement de couleur au survol) */
+        .btn-achat:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
+            background-color: #8b7355; /* Fond marron */
+            color: white; /* Texte blanc */
+            border-color: #8b7355; /* Bordure marron */
+        }
 
         .form-poetique { 
             background: rgba(255,255,255,0.8); padding: 40px; border-radius: 8px; 
@@ -235,13 +242,19 @@
 
             /* Menu caché par défaut */
             nav {
-                display: none !important; /* Force le masquage */
-                position: fixed; top: 0; left: 0; width: 100%; height: 100vh; /* Prend tout l'écran */
-                background-color: #f4e9d5; /* Fond OPAQUE couleur crème (plus de transparence) */
+                display: none !important; 
+                position: fixed !important; 
+                top: 0; left: 0; 
+                width: 100vw !important; /* Largeur TOTALE forcee */
+                height: 100vh !important; /* Hauteur TOTALE forcee */
+                background-color: #f4e9d5; 
                 flex-direction: column; 
-                align-items: center; justify-content: center; /* Centre tout parfaitement */
+                align-items: center; 
+                justify-content: center; 
                 padding: 0; 
-                z-index: 1500; /* Passe par-dessus tout */
+                margin: 0; /* Pas de marge */
+                z-index: 9999; /* Au-dessus de TOUT */
+                transform: none; /* Annule tout centrage précédent */
             }
             
             /* Menu ouvert (activé via JS) */
