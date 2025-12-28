@@ -29,19 +29,30 @@
 
         /* === RESPONSIVE MOBILE === */
         @media (max-width: 768px) {
-            body { padding-top: 120px; } /* Ajusté car le menu n'est plus empilé */
+            body { padding-top: 100px; } 
             
-            /* Logo centré et plus grand sur mobile */
-            .logo-box {
-                position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-                width: auto; margin: 0;
+            header { padding: 10px; height: 80px; }
+
+            .header-container {
+                display: flex; justify-content: center; align-items: center;
+                height: 100%; position: relative;
             }
-            .logo { width: 120px; } /* Plus grand sur mobile (90px sur PC) */
             
-            /* Bouton Burger */
+            /* Logo centré de force */
+            .logo-box {
+                position: absolute; left: 50%; top: 50%; 
+                transform: translate(-50%, -50%) !important;
+                width: auto; margin: 0;
+                z-index: 10;
+            }
+            .logo { width: 140px; height: auto; } /* Encore plus grand */
+            
+            /* Bouton Burger : Caractère simple pour être sûr qu'il s'affiche */
             .menu-toggle {
-                display: block; position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
-                font-size: 1.5em; cursor: pointer; color: #5a4a42; z-index: 2000;
+                display: flex !important; align-items: center; justify-content: center;
+                position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+                font-size: 2em; cursor: pointer; color: #2c1810; z-index: 20;
+                width: 40px; height: 40px;
             }
 
             /* Menu caché par défaut */
@@ -195,9 +206,9 @@
         p { line-height: 1.6; margin-bottom: 15px; }
 
         .banniere-img { 
-            width: 100%; 
-            max-width: 1100px; /* Moins large que l'écran pour voir les bords */
-            height: 250px; /* Hauteur réduite */
+            width: 95%; /* Prend presque toute la largeur */
+            max-width: 1400px; /* Limite très large pour les grands écrans */
+            height: 300px; /* Un peu plus haute aussi */
             object-fit: cover; 
             border-radius: 20px; /* Arrondies */
             margin: 0 auto 30px auto; 
@@ -275,7 +286,7 @@
         
         <!-- Bouton Menu Burger (Visible uniquement sur mobile) -->
         <div class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
+            ☰
         </div>
 
         <nav id="nav-menu">
@@ -304,7 +315,7 @@
         <img src="images/banniere-accueil.jpeg" alt="Bannière" class="banniere-img" style="object-position: bottom;">
         <div class="citation-bloc">
             <p class="citation">"Celui qui lutte avec des monstres doit prendre garde à ne pas devenir lui-même un monstre."</p>
-            <p style="margin-top:10px; font-size:0.9em">— Friedrich Nietzsche</p>
+            <p style="margin-top:10px; font-size:0.9em">Friedrich Nietzsche</p>
         </div>
         <h2 style="text-align: center;">L'Auteure</h2>
         <p>Depuis toujours, la littérature a nourri mon âme. Aujourd'hui, libérée des contraintes passées, je retrouve ma voix et me consacre pleinement à l'écriture.</p>
