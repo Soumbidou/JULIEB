@@ -218,7 +218,13 @@
         }
 
         footer { text-align: center; padding: 40px; font-size: 0.8em; color: #888; border-top: 1px solid #e0d0b0; margin-top: 60px; }
+        
+        .footer-content {
+            display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 20px;
+        }
         .footer-links a { color: #8b7355; margin: 0 10px; text-decoration: none; }
+        .footer-insta { color: #8b7355; font-size: 1.4em; text-decoration: none; transition: 0.3s; }
+        .footer-insta:hover { color: #2c1810; transform: scale(1.1); }
     </style>
     <!-- CSS Mobile à la fin pour la priorité -->
     <style>
@@ -227,6 +233,7 @@
             body { padding-top: 130px; } /* Ajusté pour header plus haut */
             
             header { padding: 10px; height: 110px; } /* Hauteur augmentée pour le logo */
+
 
             .header-container {
                 display: flex; justify-content: center; align-items: center;
@@ -303,8 +310,23 @@
             }
             
             /* Footer Mobile */
-            .footer-links { display: flex; flex-direction: column; gap: 10px; }
-            .footer-links a { margin: 0; }
+            .footer-content {
+                display: flex; 
+                flex-direction: row; /* Garde sur une ligne */
+                justify-content: space-between; /* Espace max entre éléments */
+                align-items: center;
+                width: 100%;
+                padding: 0 10px; /* Marges latérales */
+            }
+            .footer-links { 
+                display: flex; flex-direction: column; gap: 8px; text-align: left; 
+            }
+            .footer-links a { margin: 0; font-size: 0.9em; }
+            
+            .footer-insta {
+                font-size: 1.8em; /* Plus gros sur mobile pour le doigt */
+                margin-left: auto; /* Pousse à droite si besoin */
+            }
         }
 
         /* Cache le bouton burger sur PC */
@@ -345,10 +367,6 @@
             </div>
             
             <a href="#contact" class="menu-link" onclick="toggleMenu()">Contact</a>
-            
-            <div style="margin-top: 20px; display: flex; gap: 15px;">
-                <a href="https://www.instagram.com/_julielaviejolie_?igsh=eTAzZTdudW1kYWQ3" target="_blank" style="color: #5a4a42; font-size: 1.5em;"><i class="fab fa-instagram"></i></a>
-            </div>
         </nav>
 
     </div>
@@ -440,14 +458,18 @@
 </main>
 
 <footer>
-    <div style="margin-bottom: 20px;">
-        <a href="https://www.instagram.com/_julielaviejolie_?igsh=eTAzZTdudW1kYWQ3" target="_blank" style="color: #8b7355; font-size: 1.5em; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+    <div class="footer-content">
+        <!-- Liens Légaux -->
+        <div class="footer-links">
+            <a href="mentions-legales.html">Mentions Légales</a>
+            <a href="mentions-legales.html">Politique de Confidentialité</a>
+        </div>
+        
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/_julielaviejolie_?igsh=eTAzZTdudW1kYWQ3" target="_blank" class="footer-insta"><i class="fab fa-instagram"></i></a>
     </div>
-    <div class="footer-links">
-        <a href="mentions-legales.html">Mentions Légales</a>
-        <a href="mentions-legales.html">Politique de Confidentialité</a>
-    </div>
-    <p style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+
+    <p style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
         &copy; 2025 Julie B. <span style="opacity: 0.5;">|</span> 
         <span style="font-size: 0.9em;">Site réalisé par</span> 
         <img src="images/SOURA.png" alt="Soura" style="height: 25px; vertical-align: middle;">
