@@ -29,30 +29,47 @@
 
         /* === RESPONSIVE MOBILE === */
         @media (max-width: 768px) {
-            body { padding-top: 220px; } /* Plus d'espace car le menu s'empile */
+            body { padding-top: 120px; } /* Ajusté car le menu n'est plus empilé */
             
-            header { height: auto; padding: 15px; }
-            
-            .header-container { flex-direction: column; justify-content: center; }
-            
+            /* Logo centré et plus grand sur mobile */
             .logo-box {
-                position: static; transform: none; 
-                margin-bottom: 15px; width: 100%; justify-content: center;
+                position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+                width: auto; margin: 0;
             }
+            .logo { width: 120px; } /* Plus grand sur mobile (90px sur PC) */
             
+            /* Bouton Burger */
+            .menu-toggle {
+                display: block; position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+                font-size: 1.5em; cursor: pointer; color: #5a4a42; z-index: 2000;
+            }
+
+            /* Menu caché par défaut */
             nav {
-                position: static; transform: none;
-                flex-wrap: wrap; justify-content: center; gap: 15px;
+                display: none; /* Caché */
+                position: fixed; top: 100px; left: 0; width: 100%; 
+                background-color: rgba(244, 233, 213, 0.98);
+                flex-direction: column; padding: 20px 0; border-bottom: 1px solid #d4c5b0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             }
             
-            .menu-link { font-size: 0.75em; } /* Menu réduit */
+            /* Menu ouvert (activé via JS) */
+            nav.active { display: flex; }
             
-            .banniere-img { height: 180px; border-radius: 10px; } /* Bannière réduite mobile */
+            .menu-link { 
+                font-size: 1em; width: 100%; justify-content: center; padding: 15px 0;
+            }
             
-            section { padding: 40px 15px; }
-            
-            h2 { font-size: 1.5em; }
+            .dropdown-content {
+                position: static; box-shadow: none; border: none; background: transparent;
+                transform: none; text-align: center;
+            }
+            .dropdown-content a { text-align: center; padding: 10px; }
+            .dropdown:hover .dropdown-content { display: block; } /* Garde le comportement hover si besoin, ou on peut le forcer */
         }
+
+        /* Cache le bouton burger sur PC */
+        .menu-toggle { display: none; }
         
         /* === HEADER === */
         header {
@@ -234,22 +251,27 @@
             <a href="#accueil"><img src="images/logo.png" alt="Logo" class="logo"></a>
         </div>
         
-        <nav>
-            <a href="#accueil" class="menu-link">Accueil</a>
+        <!-- Bouton Menu Burger (Visible uniquement sur mobile) -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="#accueil" class="menu-link" onclick="toggleMenu()">Accueil</a>
             
             <div class="dropdown">
                 <a href="#livres" class="menu-link" style="display: flex; align-items: center; gap: 8px;">
                     Livres <i class="fas fa-chevron-down" style="font-size: 0.7em;"></i>
                 </a>
                 <div class="dropdown-content">
-                    <a href="#murasalat">Murâsalat</a>
-                    <a href="#lenvers">L'Envers de l'Amour</a>
-                    <a href="#bledard">Le Blédard m'a Tuée</a>
-                    <a href="#enfant">C'était une Enfant Aussi</a>
+                    <a href="#murasalat" onclick="toggleMenu()">Murâsalat</a>
+                    <a href="#lenvers" onclick="toggleMenu()">L'Envers de l'Amour</a>
+                    <a href="#bledard" onclick="toggleMenu()">Le Blédard m'a Tuée</a>
+                    <a href="#enfant" onclick="toggleMenu()">C'était une Enfant Aussi</a>
                 </div>
             </div>
             
-            <a href="#contact" class="menu-link">Contact</a>
+            <a href="#contact" class="menu-link" onclick="toggleMenu()">Contact</a>
         </nav>
 
     </div>
@@ -350,6 +372,13 @@
     <span>Ce site utilise des cookies.</span>
     <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background:#8b7355;color:white;border:none;padding:5px 10px;cursor:pointer;">OK</button>
 </div>
+
+<script>
+    function toggleMenu() {
+        var nav = document.getElementById("nav-menu");
+        nav.classList.toggle("active");
+    }
+</script>
 
 </body>
 </html>
