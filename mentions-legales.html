@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mentions légales du site de Julie B.">
+    <title>Mentions Légales - Julie B</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Copie du style essentiel de index.html pour cohérence */
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #f4e9d5; 
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            padding-top: 140px; 
+            color: #2c1810;
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: rgba(244, 233, 213, 0.98); 
+            backdrop-filter: blur(8px); z-index: 1000;
+            box-shadow: 0 4px 20px rgba(44, 24, 16, 0.08);
+            padding: 10px 20px; box-sizing: border-box; height: 100px;
+            display: flex; align-items: center;
+        }
+        .header-container {
+            width: 100%; max-width: 1200px; margin: 0 auto; position: relative; height: 100%; display: flex; align-items: center;
+        }
+        .logo-box {
+            position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center;
+        }
+        .logo { width: 90px; height: auto; display: block; }
+        nav { 
+            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+            display: flex; align-items: center; gap: 40px; height: 100%;
+        }
+        .menu-link {
+            font-size: 0.85em; text-transform: uppercase; letter-spacing: 2px;
+            color: #5a4a42; text-decoration: none; font-weight: 600; 
+            font-family: 'Helvetica', sans-serif; display: flex; align-items: center; height: 40px;
+        }
+        .menu-link:hover { color: #2c1810; }
+
+        /* === RESPONSIVE MOBILE === */
+        @media (max-width: 768px) {
+            body { padding-top: 200px; }
+            header { height: auto; padding: 15px; }
+            .header-container { flex-direction: column; justify-content: center; }
+            .logo-box { position: static; transform: none; margin-bottom: 15px; width: 100%; justify-content: center; }
+            nav { position: static; transform: none; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .menu-link { font-size: 0.75em; }
+            main { padding: 20px; }
+        }
+
+        /* CONTENU LEGAL */
+        main { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        h1 { text-align: center; margin-bottom: 40px; color: #8b7355; }
+        h2 { font-size: 1.2em; color: #2c1810; margin-top: 30px; border-bottom: 1px solid #d4c5b0; padding-bottom: 10px; }
+        p { line-height: 1.6; margin-bottom: 15px; }
+        
+        footer { text-align: center; padding: 40px; font-size: 0.8em; color: #888; border-top: 1px solid #e0d0b0; margin-top: 60px; }
+        .footer-links a { color: #8b7355; margin: 0 10px; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo-box">
+            <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo"></a>
+        </div>
+        <nav>
+            <a href="index.html" class="menu-link">Retour Accueil</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h1>Mentions Légales</h1>
+
+    <section>
+        <h2>1. Édition du site</h2>
+        <p>Le présent site est édité par <strong>Julie B.</strong>, auteure auto-éditée.</p>
+        <p><strong>Contact :</strong> julieb@contact.fr</p>
+    </section>
+
+    <section>
+        <h2>2. Hébergement</h2>
+        <p>Le site est hébergé par <strong>GitHub Pages</strong>.</p>
+        <p>Adresse : 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+    </section>
+
+    <section>
+        <h2>3. Propriété intellectuelle</h2>
+        <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+        <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de l'auteur.</p>
+    </section>
+
+    <section>
+        <h2>4. Données personnelles</h2>
+        <p>Ce site ne collecte aucune donnée personnelle à l'insu de l'utilisateur. Les informations recueillies via le formulaire de contact (nom, email) ne sont utilisées que pour répondre à vos demandes et ne sont jamais cédées à des tiers.</p>
+    </section>
+
+    <section>
+        <h2>5. Cookies</h2>
+        <p>Ce site peut utiliser des cookies à des fins de statistiques anonymes pour améliorer l'expérience utilisateur. Vous pouvez refuser les cookies en configurant les paramètres de votre navigateur.</p>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="mentions-legales.html">Mentions Légales</a>
+    </div>
+    <p style="margin-top: 15px;">&copy; 2025 Julie B.</p>
+</footer>
+
+</body>
+</html>

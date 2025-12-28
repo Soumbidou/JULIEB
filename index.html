@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez l'univers littéraire de Julie B. Auteure de romans.">
+    <meta name="description" content="Découvrez l'univers littéraire de Julie B. Auteure de romans engagés : Murâsalat, L'Envers de l'Amour, Le Blédard m'a Tuée.">
+    <meta name="keywords" content="Julie B, Auteure, Romans, Littérature, Auto-édition, Murâsalat, Roman épistolaire, Femme">
+    <meta property="og:title" content="Julie B - Auteure de romans">
+    <meta property="og:description" content="Plongez dans des récits poignants mêlant psychologie et critique sociale. Découvrez les derniers ouvrages de Julie B.">
+    <meta property="og:image" content="images/banniere-accueil.jpeg">
+    <meta property="og:url" content="https://votre-site.com">
+    <meta property="og:type" content="website">
     <title>Julie B - Auteure</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
@@ -21,6 +27,33 @@
             font-family: 'Georgia', serif;
         }
 
+        /* === RESPONSIVE MOBILE === */
+        @media (max-width: 768px) {
+            body { padding-top: 220px; } /* Plus d'espace car le menu s'empile */
+            
+            header { height: auto; padding: 15px; }
+            
+            .header-container { flex-direction: column; justify-content: center; }
+            
+            .logo-box {
+                position: static; transform: none; 
+                margin-bottom: 15px; width: 100%; justify-content: center;
+            }
+            
+            nav {
+                position: static; transform: none;
+                flex-wrap: wrap; justify-content: center; gap: 15px;
+            }
+            
+            .menu-link { font-size: 0.75em; } /* Menu réduit */
+            
+            .banniere-img { height: 180px; border-radius: 10px; } /* Bannière réduite mobile */
+            
+            section { padding: 40px 15px; }
+            
+            h2 { font-size: 1.5em; }
+        }
+        
         /* === HEADER === */
         header {
             position: fixed;
@@ -131,13 +164,23 @@
         h2 { font-family: 'Georgia', serif; color: #2c1810; margin-bottom: 20px; }
         p { line-height: 1.6; margin-bottom: 15px; }
 
-        .banniere-img { width: 100%; height: auto; border-radius: 3px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .banniere-img { 
+            width: 100%; 
+            max-width: 1100px; /* Moins large que l'écran pour voir les bords */
+            height: 250px; /* Hauteur réduite */
+            object-fit: cover; 
+            border-radius: 20px; /* Arrondies */
+            margin: 0 auto 30px auto; 
+            display: block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Ombrées */
+        }
         
         .citation-bloc { 
             text-align: center; margin: 40px auto; padding: 20px; 
-            border-left: 3px solid #8b7355; border-right: 3px solid #8b7355;
-            background-color: rgba(255,255,255,0.4); max-width: 600px;
+            /* Plus de cadre ni de fond */
+            max-width: 600px;
         }
+        .citation { border: none !important; } /* Suppression totale des bordures */
         .citation { font-style: italic; font-size: 1.1em; color: #5a4a42; }
 
         .livre { margin-bottom: 80px; text-align: center; }
@@ -214,7 +257,7 @@
 
 <main>
     <section id="accueil">
-        <img src="images/banniere-accueil.jpeg" alt="Bannière" class="banniere-img" style="height: 400px; object-fit: cover; object-position: bottom;">
+        <img src="images/banniere-accueil.jpeg" alt="Bannière" class="banniere-img" style="object-position: bottom;">
         <div class="citation-bloc">
             <p class="citation">"Celui qui lutte avec des monstres doit prendre garde à ne pas devenir lui-même un monstre."</p>
             <p style="margin-top:10px; font-size:0.9em">— Friedrich Nietzsche</p>
@@ -234,7 +277,7 @@
             <img src="images/murasalat.jpeg" alt="Murâsalat" class="cover">
             <p>Un roman épistolaire intime où s'entremêlent littérature et foi.</p>
             <div class="actions-livre">
-                <a href="https://amzn.eu/d/iwsIcWG" target="_blank" class="btn-achat"><i class="fab fa-amazon"></i> Acheter</a>
+                <a href="https://amzn.eu/d/9yL50jZ" target="_blank" class="btn-achat"><i class="fab fa-amazon"></i> Acheter</a>
                 <a href="https://wa.me/?text=Commande%20Murasalat" target="_blank" class="btn-achat"><i class="fab fa-whatsapp"></i> Commander</a>
             </div>
         </article>
@@ -297,8 +340,8 @@
 
 <footer>
     <div class="footer-links">
-        <a href="#">Mentions Légales</a>
-        <a href="#">Politique de Confidentialité</a>
+        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="mentions-legales.html">Politique de Confidentialité</a>
     </div>
     <p style="margin-top: 15px;">&copy; 2025 Julie B.</p>
 </footer>
